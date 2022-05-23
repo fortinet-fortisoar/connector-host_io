@@ -1,0 +1,478 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@context": "/api/3/contexts/WorkflowCollection",
+      "@type": "WorkflowCollection",
+      "name": "Sample - host.io - 1.0.0",
+      "description": "Sample playbooks for \"host.io\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "/api/3/images/c7398909-c1bf-4e0f-ab1c-89908761bf77",
+      "id": 187,
+      "createDate": 1653301306,
+      "modifyDate": 1653301306,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "DNS Domain",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get all the DNS records stored for a domain.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1653302317,
+          "collection": "/api/3/workflow_collections/f01ebc83-cb05-42bb-910e-09d96a5adef8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b911a1d9-8615-44ce-bb78-413eb2cbf529",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get DNS Domain Details",
+              "description": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "ada0de89-2e15-411f-9a6d-7f1b3b7dd59a",
+                "params": {
+                  "endpoint_url": "facebook.com"
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "dns_domain",
+                "operationTitle": "DNS Domain",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "5071faf9-3e25-4170-8904-21ec19c8e491",
+              "id": 10641
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "b0d8334f-0179-44e7-8c37-e02e1a5ad5c4",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "b911a1d9-8615-44ce-bb78-413eb2cbf529",
+              "id": 10627
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get DNS Domain Detail",
+              "targetStep": "/api/3/workflow_steps/5071faf9-3e25-4170-8904-21ec19c8e491",
+              "sourceStep": "/api/3/workflow_steps/b911a1d9-8615-44ce-bb78-413eb2cbf529",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e8e4f854-951f-40b9-bc39-127310111042"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "0d5f7e9b-b021-4250-b4ee-55cf68063f5a",
+          "recordTags": [],
+          "id": 2103,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1653301306,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1653302317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Full Domain",
+          "aliasName": null,
+          "tag": null,
+          "description": "A single endpoint that includes the data from WEB DOMAIN,  DNS DOMAIN, RELATED DOMAIN and IPINFO",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1653302207,
+          "collection": "/api/3/workflow_collections/f01ebc83-cb05-42bb-910e-09d96a5adef8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c989b4b9-989c-4f8c-a1e3-a2e4aa72b33d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Full Domain Details",
+              "description": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "ada0de89-2e15-411f-9a6d-7f1b3b7dd59a",
+                "params": {
+                  "endpoint_url": "google.com"
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_full_domains_data",
+                "operationTitle": "Full Domains",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "28c280e3-3d72-4330-9be6-bbdd14670e67",
+              "id": 10640
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "cce5493f-14ce-4308-a282-9106de0a6e61",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "c989b4b9-989c-4f8c-a1e3-a2e4aa72b33d",
+              "id": 10629
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Full Domains Details",
+              "targetStep": "/api/3/workflow_steps/28c280e3-3d72-4330-9be6-bbdd14670e67",
+              "sourceStep": "/api/3/workflow_steps/c989b4b9-989c-4f8c-a1e3-a2e4aa72b33d",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e077ee4e-be24-4020-9ca2-1d40bec6e23f"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "1333dd32-5c72-4b89-b9f5-b923fece152e",
+          "recordTags": [],
+          "id": 2104,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1653301306,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1653302208,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Related Domain",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get a count of the number of related domains for all supported lookups we offer. See /api/domains/:field for a full list of fields, and details on how to get the list of related domains.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1653301768,
+          "collection": "/api/3/workflow_collections/f01ebc83-cb05-42bb-910e-09d96a5adef8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/dc3aec55-65c2-43c4-ad71-212754fb0149",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Related Domain Details",
+              "description": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "ada0de89-2e15-411f-9a6d-7f1b3b7dd59a",
+                "params": {
+                  "endpoint_url": "google.com"
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "related_domain",
+                "operationTitle": "Related Domain",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "a18906c5-14c8-4e9e-b13b-72839070df55",
+              "id": 10638
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "76741955-f291-4de5-956f-975b8ac5627b",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "dc3aec55-65c2-43c4-ad71-212754fb0149",
+              "id": 10631
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Related Domain Detail",
+              "targetStep": "/api/3/workflow_steps/a18906c5-14c8-4e9e-b13b-72839070df55",
+              "sourceStep": "/api/3/workflow_steps/dc3aec55-65c2-43c4-ad71-212754fb0149",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "75e6f698-e6e9-4cf4-ac62-023adbb49aa0"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "33bee5ba-9477-41a0-bb03-9873175b939d",
+          "recordTags": [],
+          "id": 2105,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1653301306,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1653301768,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get all Domains",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1653302404,
+          "collection": "/api/3/workflow_collections/f01ebc83-cb05-42bb-910e-09d96a5adef8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7d39e90c-0c9c-490e-975e-0729d6f86c4c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "9e513eaa-21ae-4ff7-8111-44fc4630ca28",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "7d39e90c-0c9c-490e-975e-0729d6f86c4c",
+              "id": 10633
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get All Domains Details",
+              "description": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "ada0de89-2e15-411f-9a6d-7f1b3b7dd59a",
+                "params": {
+                  "page": 0,
+                  "field": "googleanalytics",
+                  "limit": 25,
+                  "value": "UA-61330992"
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_all_domains",
+                "operationTitle": "Get all Domains",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "f76c585e-4b91-4801-9d1f-44b0e1be9ec1",
+              "id": 10639
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get All Domains Detail",
+              "targetStep": "/api/3/workflow_steps/f76c585e-4b91-4801-9d1f-44b0e1be9ec1",
+              "sourceStep": "/api/3/workflow_steps/7d39e90c-0c9c-490e-975e-0729d6f86c4c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ba8c725d-abb4-4f7e-9427-dd89de7fcc18"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "37bba633-36c0-4333-a72f-ba0a238cc175",
+          "recordTags": [],
+          "id": 2106,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1653301306,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1653302404,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Web Domain",
+          "aliasName": null,
+          "tag": null,
+          "description": "Metadata scraped from a domain homepage",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1653301680,
+          "collection": "/api/3/workflow_collections/f01ebc83-cb05-42bb-910e-09d96a5adef8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/fa42b39b-327f-4c60-a1ea-2eaabd4a2994",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Web Domain Details",
+              "description": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "ada0de89-2e15-411f-9a6d-7f1b3b7dd59a",
+                "params": {
+                  "endpoint_url": "facebook.com"
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "web_domain",
+                "operationTitle": "Web Domain",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "1b4b645f-26f2-42b9-85b1-12641c1c6ad3",
+              "id": 10637
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "acc89068-37bd-4260-89b7-79edfa7605f0",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "fa42b39b-327f-4c60-a1ea-2eaabd4a2994",
+              "id": 10635
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Web Domain Detail",
+              "targetStep": "/api/3/workflow_steps/1b4b645f-26f2-42b9-85b1-12641c1c6ad3",
+              "sourceStep": "/api/3/workflow_steps/fa42b39b-327f-4c60-a1ea-2eaabd4a2994",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d3e6122c-1723-4950-b3a8-e405e8d4a521"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "f0d43ce4-e1e0-49fb-b52c-9fdbfb1fa77f",
+          "recordTags": [],
+          "id": 2107,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1653301306,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1653301680,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}
