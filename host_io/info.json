@@ -2,26 +2,26 @@
     "name": "host_io",
     "version": "1.0.0",
     "label": "host.io",
-    "description": "Get comprehensive domain name data, uncover new domains and the relationships between them. Also get DNS details, scraped website content, outbound links, backlinks, and other hosting details for any domain.",
+    "description": "host.io helps to get comprehensive domain name data, uncover new domains and the relationships between them, get DNS details, scraped website content, outbound links, backlinks, and other hosting details for any domain. This connector facilitates automated operation related to various domains.",
     "publisher": "spryIQ.co",
     "icon_small_name": "host_io32x32.png",
     "icon_large_name": "host_io100x100.png",
     "help_online": "",
-    "category": "Cyber Security",
+    "category": "Data enrichment",
     "cs_compatible": true,
     "cs_approved": false,
     "configuration": {
         "fields": [
             {
                 "title": "API Token",
-                "type": "text",
+                "type": "password",
                 "description": "Provide API token, used for user authentication.",
                 "tooltip": "Provide API token, used for user authentication.",
+                "placeholder": "638aa327548023",
                 "name": "token",
                 "required": true,
                 "visible": true,
-                "editable": true,
-                "value": ""
+                "editable": true
             },
             {
                 "title": "Server URL",
@@ -29,7 +29,7 @@
                 "description": "URL of the host.io connector to access the connector website.",
                 "tooltip": "URL of the host.io connector to access the connector website. e.g, https://host.io",
                 "value": "host.io",
-                "placeholder": "host.io",
+                "placeholder": "host.io or https://host.io",
                 "name": "server",
                 "required": true,
                 "visible": true,
@@ -39,12 +39,12 @@
     },
     "operations": [
         {
-            "operation": "web_domain",
-            "title": "Web Domain",
-            "description": "Metadata scraped from a domain homepage.",
+            "operation": "get_web_domain_details",
+            "title": "Get Web Domain Details",
+            "description": "Get metadata scraped from a domain homepage.",
             "enabled": true,
-            "category": "investigation",
-            "annotation": "web_domain",
+            "category": "utilities",
+            "annotation": "web_domain_details",
             "output_schema": {
                 "domain": "",
                 "rank": "",
@@ -60,26 +60,25 @@
             },
             "parameters": [
                 {
-                    "title": "Endpoint URL",
+                    "title": "Web Domain",
                     "type": "text",
-                    "name": "endpoint_url",
+                    "name": "web_domain",
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "facebook.com",
-                    "description": "Endpoint URL name for which you want to retrieve a host.io list of domains.",
-                    "tooltip": "Endpoint URL name for which you want to retrieve a host.io list of domains."
+                    "description": "The domain name for which you want to retrieve a host.io list of metadata.",
+                    "tooltip": "The domain name for which you want to retrieve a host.io list of metadata."
                 }
             ]
         },
         {
-            "operation": "dns_domain",
-            "title": "DNS Domain",
+            "operation": "get_dns_domain_details",
+            "title": "Get DNS Domain Details",
             "description": "Get all the DNS records stored for a domain.",
             "enabled": true,
-            "category": "investigation",
-            "annotation": "dns_domain",
+            "category": "utilities",
+            "annotation": "dns_domain_details",
             "output_schema": {
                 "domain": "",
                 "a": [],
@@ -89,26 +88,25 @@
             },
             "parameters": [
                 {
-                    "title": "Endpoint URL",
+                    "title": "DNS Domain",
                     "type": "text",
-                    "name": "endpoint_url",
+                    "name": "dns_domain",
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "facebook.com",
-                    "description": "Endpoint URL name for which you want to retrieve a host.io list of domains.",
-                    "tooltip": "Endpoint URL name for which you want to retrieve a host.io list of domains."
+                    "description": "Domain name for which you want to retrieve a host.io list of dns records.",
+                    "tooltip": "Domain name for which you want to retrieve a host.io list of dns records."
                 }
             ]
         },
         {
-            "operation": "related_domain",
-            "title": "Related Domain",
+            "operation": "get_related_domains",
+            "title": "Get Related Domains",
             "description": "Get a count of the number of related domains for all supported lookups offered by host.io.",
             "enabled": true,
-            "category": "investigation",
-            "annotation": "related_domain",
+            "category": "utilities",
+            "annotation": "get_related_domains",
             "output_schema": {
                 "ip": [],
                 "redirects": [],
@@ -117,26 +115,25 @@
             },
             "parameters": [
                 {
-                    "title": "Endpoint URL",
+                    "title": "Domain Name",
                     "type": "text",
-                    "name": "endpoint_url",
+                    "name": "domain_name",
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "google.com",
-                    "description": "Endpoint URL name for which you want to retrieve a host.io list of domains.",
-                    "tooltip": "Endpoint URL name for which you want to retrieve a host.io list of domains."
+                    "description": "Domain name for which you want to retrieve related domains count for all lookups offered by host.io.",
+                    "tooltip": "Domain name for which you want to retrieve related domains count for all lookups offered by host.io."
                 }
             ]
         },
         {
             "operation": "get_full_domains_data",
-            "title": "Full Domains",
+            "title": "Get Full Domains Data",
             "description": "A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.",
             "enabled": true,
-            "category": "investigation",
-            "annotation": "get_full_domains_data",
+            "category": "utilities",
+            "annotation": "full_domains_data",
             "output_schema": {
                 "domain": "",
                 "dns": {},
@@ -146,25 +143,24 @@
             },
             "parameters": [
                 {
-                    "title": "Endpoint URL",
+                    "title": "Domain Name",
                     "type": "text",
-                    "name": "endpoint_url",
+                    "name": "domain_name",
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "google.com",
-                    "description": "Endpoint URL name for which you want to retrieve a host.io list of domains.",
-                    "tooltip": "Endpoint URL name for which you want to retrieve a host.io list of domains."
+                    "description": "Domain name for which you want to retrieve a host.io list of full data.",
+                    "tooltip": "Domain name for which you want to retrieve a host.io list of full data."
                 }
             ]
         },
         {
             "operation": "get_all_domains",
-            "title": "Get all Domains",
+            "title": "Get All Domains",
             "description": "Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.",
             "enabled": true,
-            "category": "investigation",
+            "category": "utilities",
             "annotation": "get_all_domains",
             "output_schema": {
                 "total": 0,
@@ -178,7 +174,6 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "googleanalytics",
                     "description": "Provide field name to get associated domains.",
                     "tooltip": "Provide field name to get associated domains."
@@ -190,7 +185,6 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": "",
                     "placeholder": "UA-61330992",
                     "description": "The value should be according to the field and not necessarily a domain.",
                     "tooltip": "The value should be according to the field and not necessarily a domain."

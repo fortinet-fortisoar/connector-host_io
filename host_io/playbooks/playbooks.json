@@ -1,0 +1,422 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+      "@type": "WorkflowCollection",
+      "name": "Sample - host.io - 1.0.0",
+      "description": "host.io helps to get comprehensive domain name data, uncover new domains and the relationships between them, get DNS details, scraped website content, outbound links, backlinks, and other hosting details for any domain. This connector facilitates automated operation related to various domains.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Host_io",
+        "host_io"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "93282234-548e-42f6-aca6-4a4408a890bc",
+          "collection": "/api/3/workflow_collections/e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+          "triggerLimit": null,
+          "description": "Get metadata scraped from a domain homepage.",
+          "name": "Get Web Domain Details",
+          "tag": "#host.io",
+          "recordTags": [
+            "Host_io",
+            "host_io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6698499c-3608-4fca-9b76-1371874099e6",
+          "steps": [
+            {
+              "uuid": "6698499c-3608-4fca-9b76-1371874099e6",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "b8401430-542e-423a-a23a-863f5a114dad",
+                "title": "host.io: Get Web Domain Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "2859a5a5-f37a-4122-8844-f3217110eb48",
+              "@type": "WorkflowStep",
+              "name": "Get Web Domain Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_web_domain_details",
+                "operationTitle": "Get Web Domain Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "96795304-faf1-422e-9bdf-0694d855eddd",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Web Domain Details",
+              "sourceStep": "/api/3/workflow_steps/6698499c-3608-4fca-9b76-1371874099e6",
+              "targetStep": "/api/3/workflow_steps/2859a5a5-f37a-4122-8844-f3217110eb48"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "561dbe53-bb04-40d8-9fef-fef0c10ef261",
+          "collection": "/api/3/workflow_collections/e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+          "triggerLimit": null,
+          "description": "Get all the DNS records stored for a domain.",
+          "name": "Get DNS Domain Details",
+          "tag": "#host.io",
+          "recordTags": [
+            "Host_io",
+            "host_io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/3c2deaed-10bf-4740-8019-ce2ab1bf245c",
+          "steps": [
+            {
+              "uuid": "3c2deaed-10bf-4740-8019-ce2ab1bf245c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "308498bf-8f87-4910-8825-fa390d275d24",
+                "title": "host.io: Get DNS Domain Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "b4053b81-87a6-4acc-97cd-e391a95549b2",
+              "@type": "WorkflowStep",
+              "name": "Get DNS Domain Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_dns_domain_details",
+                "operationTitle": "Get DNS Domain Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e8f803a4-2b20-4a3a-b69d-2cd97c6e30b5",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get DNS Domain Details",
+              "sourceStep": "/api/3/workflow_steps/3c2deaed-10bf-4740-8019-ce2ab1bf245c",
+              "targetStep": "/api/3/workflow_steps/b4053b81-87a6-4acc-97cd-e391a95549b2"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "63bd01d9-666e-4386-bf14-6a275f51e9a3",
+          "collection": "/api/3/workflow_collections/e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+          "triggerLimit": null,
+          "description": "Get a count of the number of related domains for all supported lookups offered by host.io.",
+          "name": "Get Related Domains",
+          "tag": "#host.io",
+          "recordTags": [
+            "Host_io",
+            "host_io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b15c5894-304c-4c44-a51a-a31a266c807a",
+          "steps": [
+            {
+              "uuid": "b15c5894-304c-4c44-a51a-a31a266c807a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "1b552059-27d3-4449-b6fc-6f942af46c60",
+                "title": "host.io: Get Related Domains",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c9c66a2f-2000-417d-9d6e-ed6ab9ce586b",
+              "@type": "WorkflowStep",
+              "name": "Get Related Domains",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_related_domains",
+                "operationTitle": "Get Related Domains",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "b32578d7-3fbe-41d2-90d2-c72df07011fa",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Related Domains",
+              "sourceStep": "/api/3/workflow_steps/b15c5894-304c-4c44-a51a-a31a266c807a",
+              "targetStep": "/api/3/workflow_steps/c9c66a2f-2000-417d-9d6e-ed6ab9ce586b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b1eff2c0-c62c-46cf-bd94-419b291b9274",
+          "collection": "/api/3/workflow_collections/e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+          "triggerLimit": null,
+          "description": "A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.",
+          "name": "Get Full Domains Data",
+          "tag": "#host.io",
+          "recordTags": [
+            "Host_io",
+            "host_io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/143a795e-1730-4e25-91bb-44b2c4245c6e",
+          "steps": [
+            {
+              "uuid": "143a795e-1730-4e25-91bb-44b2c4245c6e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "80e4ae89-07eb-4435-8d99-5b1b4e055ba6",
+                "title": "host.io: Get Full Domains Data",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e4218f41-283c-4352-838c-cf16083ba1bf",
+              "@type": "WorkflowStep",
+              "name": "Get Full Domains Data",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_full_domains_data",
+                "operationTitle": "Get Full Domains Data",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "39511bc5-f575-41f7-9ddf-fe663eb68422",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Full Domains Data",
+              "sourceStep": "/api/3/workflow_steps/143a795e-1730-4e25-91bb-44b2c4245c6e",
+              "targetStep": "/api/3/workflow_steps/e4218f41-283c-4352-838c-cf16083ba1bf"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "fb008c60-97fa-4f43-b875-401dabe88de9",
+          "collection": "/api/3/workflow_collections/e32fd79c-3a54-4621-80ac-4d7884ff38e1",
+          "triggerLimit": null,
+          "description": "Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.",
+          "name": "Get All Domains",
+          "tag": "#host.io",
+          "recordTags": [
+            "Host_io",
+            "host_io"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1d9953ca-87d7-4504-a46b-86102030ab99",
+          "steps": [
+            {
+              "uuid": "1d9953ca-87d7-4504-a46b-86102030ab99",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "9d40cffb-6ac0-4e8d-b0dd-c6dcb08584cd",
+                "title": "host.io: Get All Domains",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c39a59d3-7d4a-4a72-b04d-6a20f300e836",
+              "@type": "WorkflowStep",
+              "name": "Get All Domains",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "host.io",
+                "config": "''",
+                "params": {
+                  "limit": 25,
+                  "page": 0
+                },
+                "version": "1.0.0",
+                "connector": "host_io",
+                "operation": "get_all_domains",
+                "operationTitle": "Get All Domains",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "76389c82-3d04-4237-a356-6c3ce996adb1",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Domains",
+              "sourceStep": "/api/3/workflow_steps/1d9953ca-87d7-4504-a46b-86102030ab99",
+              "targetStep": "/api/3/workflow_steps/c39a59d3-7d4a-4a72-b04d-6a20f300e836"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
