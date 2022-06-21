@@ -6,7 +6,7 @@
     "publisher": "spryIQ.co",
     "icon_small_name": "host_io32x32.png",
     "icon_large_name": "host_io100x100.png",
-    "help_online": "",
+    "help_online": "https://github.com/bidisha-spryiq/connector-host_io/blob/develop/docs/HostioConnectorDoc.md",
     "category": "Data enrichment",
     "cs_compatible": true,
     "cs_approved": false,
