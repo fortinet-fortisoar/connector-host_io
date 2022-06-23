@@ -13,13 +13,13 @@ logger = get_logger('host_io')
 class HostIO(Connector):
 
     def execute(self, config, operation, params, **kwargs):
-        logger.info('host_io: In execute() Operation: [{}]'.format(operation))
+        logger.info('In execute() Operation: [{0}]'.format(operation))
         try:
             params.update({"operation": operation})
             return _run_operation(config, params)
         except Exception as err:
-            logger.error('host_io: {}'.format(err))
-            raise ConnectorError('host_io: {}'.format(err))
+            logger.error('{0}'.format(err))
+            raise ConnectorError('{0}'.format(err))
 
     def check_health(self, config):
         return _check_health(config)

@@ -5,7 +5,7 @@
     "description": "host.io helps to get comprehensive domain name data, uncover new domains and the relationships between them, get DNS details, scraped website content, outbound links, backlinks, and other hosting details for any domain. This connector facilitates automated operation related to various domains.",
     "publisher": "spryIQ.co",
     "icon_small_name": "host_io32x32.png",
-    "icon_large_name": "host_io100x100.png",
+    "icon_large_name": "host_io80x80.png",
     "help_online": "https://github.com/bidisha-spryiq/connector-host_io/blob/develop/docs/HostioConnectorDoc.md",
     "category": "Data enrichment",
     "cs_compatible": true,
@@ -17,7 +17,6 @@
                 "type": "password",
                 "description": "Provide API token, used for user authentication.",
                 "tooltip": "Provide API token, used for user authentication.",
-                "placeholder": "638aa327548023",
                 "name": "token",
                 "required": true,
                 "visible": true,
@@ -163,7 +162,7 @@
             "category": "utilities",
             "annotation": "get_all_domains",
             "output_schema": {
-                "total": 0,
+                "total": "",
                 "domains": []
             },
             "parameters": [

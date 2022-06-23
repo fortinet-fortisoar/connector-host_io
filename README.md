@@ -110,7 +110,7 @@ The output contains the following populated JSON schema:
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "total": 0,
+</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "total": "",
 </code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "domains": []
 </code><code><br>}</code>
 ## Included playbooks
