@@ -1,0 +1,216 @@
+{
+    "name": "host_io",
+    "version": "1.0.0",
+    "label": "host.io",
+    "description": "host.io helps to get comprehensive domain name data, uncover new domains and the relationships between them, get DNS details, scraped website content, outbound links, backlinks, and other hosting details for any domain. This connector facilitates automated operation related to various domains.",
+    "publisher": "spryIQ.co",
+    "icon_small_name": "host_io32x32.png",
+    "icon_large_name": "host_io80x80.png",
+    "help_online": "https://github.com/bidisha-spryiq/connector-host_io/blob/develop/docs/HostioConnectorDoc.md",
+    "category": "Threat Intelligence",
+    "cs_compatible": true,
+    "cs_approved": false,
+    "configuration": {
+        "fields": [
+            {
+                "title": "Server URL",
+                "type": "text",
+                "description": "URL of the host.io connector to access the connector website.",
+                "tooltip": "URL of the host.io connector to access the connector website. e.g, https://host.io",
+                "value": "host.io",
+                "placeholder": "host.io or https://host.io",
+                "name": "server",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "API Token",
+                "type": "password",
+                "description": "Provide API token, used for user authentication.",
+                "tooltip": "Provide API token, used for user authentication.",
+                "name": "token",
+                "required": true,
+                "visible": true,
+                "editable": true
+            }
+        ]
+    },
+    "operations": [
+        {
+            "operation": "get_web_domain_details",
+            "title": "Get Web Domain Details",
+            "description": "Get metadata scraped from a domain homepage.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "web_domain_details",
+            "output_schema": {
+                "domain": "",
+                "rank": "",
+                "url": "",
+                "ip": "",
+                "date": "",
+                "length": "",
+                "encoding": "",
+                "copyright": "",
+                "title": "",
+                "description": "",
+                "links": []
+            },
+            "parameters": [
+                {
+                    "title": "Web Domain",
+                    "type": "text",
+                    "name": "web_domain",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "facebook.com",
+                    "description": "The domain name for which you want to retrieve a host.io list of metadata.",
+                    "tooltip": "The domain name for which you want to retrieve a host.io list of metadata."
+                }
+            ]
+        },
+        {
+            "operation": "get_dns_domain_details",
+            "title": "Get DNS Domain Details",
+            "description": "Get all the DNS records stored for a domain.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "dns_domain_details",
+            "output_schema": {
+                "domain": "",
+                "a": [],
+                "aaaa": [],
+                "mx": [],
+                "ns": []
+            },
+            "parameters": [
+                {
+                    "title": "DNS Domain",
+                    "type": "text",
+                    "name": "dns_domain",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "facebook.com",
+                    "description": "Domain name for which you want to retrieve a host.io list of dns records.",
+                    "tooltip": "Domain name for which you want to retrieve a host.io list of dns records."
+                }
+            ]
+        },
+        {
+            "operation": "get_related_domains",
+            "title": "Get Related Domains",
+            "description": "Get a count of the number of related domains for all supported lookups offered by host.io.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "get_related_domains",
+            "output_schema": {
+                "ip": [],
+                "redirects": [],
+                "backlinks": [],
+                "asn": []
+            },
+            "parameters": [
+                {
+                    "title": "Domain Name",
+                    "type": "text",
+                    "name": "domain_name",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "google.com",
+                    "description": "Domain name for which you want to retrieve related domains count for all lookups offered by host.io.",
+                    "tooltip": "Domain name for which you want to retrieve related domains count for all lookups offered by host.io."
+                }
+            ]
+        },
+        {
+            "operation": "get_full_domains_data",
+            "title": "Get Full Domains Data",
+            "description": "A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "full_domains_data",
+            "output_schema": {
+                "domain": "",
+                "dns": {},
+                "ipinfo": {},
+                "web": {},
+                "related": {}
+            },
+            "parameters": [
+                {
+                    "title": "Domain Name",
+                    "type": "text",
+                    "name": "domain_name",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "google.com",
+                    "description": "Domain name for which you want to retrieve a host.io list of full data.",
+                    "tooltip": "Domain name for which you want to retrieve a host.io list of full data."
+                }
+            ]
+        },
+        {
+            "operation": "get_all_domains",
+            "title": "Get All Domains",
+            "description": "Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "get_all_domains",
+            "output_schema": {
+                "total": "",
+                "domains": []
+            },
+            "parameters": [
+                {
+                    "title": "Field",
+                    "type": "text",
+                    "name": "field",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "googleanalytics",
+                    "description": "Provide field name to get associated domains.",
+                    "tooltip": "Provide field name to get associated domains."
+                },
+                {
+                    "title": "Value",
+                    "type": "text",
+                    "name": "value",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "placeholder": "UA-61330992",
+                    "description": "The value should be according to the field and not necessarily a domain.",
+                    "tooltip": "The value should be according to the field and not necessarily a domain."
+                },
+                {
+                    "title": "Limit",
+                    "type": "integer",
+                    "name": "limit",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": 25,
+                    "description": "Must be one of 0, 1, 5, 10, 25, 100, 250, or 1000. Default is 25.",
+                    "tooltip": "Must be one of 0, 1, 5, 10, 25, 100, 250, or 1000. Default is 25."
+                },
+                {
+                    "title": "Page",
+                    "type": "integer",
+                    "name": "page",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": 0,
+                    "description": "The page of data to view, 0-indexed. Default is 0. Pagination takes into account the limit.",
+                    "tooltip": "The page of data to view, 0-indexed. Default is 0. Pagination takes into account the limit."
+                }
+            ]
+        }
+    ]
+}
