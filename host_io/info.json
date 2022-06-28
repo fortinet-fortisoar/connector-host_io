@@ -6,7 +6,7 @@
     "publisher": "spryIQ.co",
     "icon_small_name": "host_io32x32.png",
     "icon_large_name": "host_io80x80.png",
-    "help_online": "https://github.com/bidisha-spryiq/connector-host_io/blob/develop/docs/HostioConnectorDoc.md",
+    "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/host-io/302/host-io-v1-0-0",
     "category": "Threat Intelligence",
     "cs_compatible": true,
     "cs_approved": false,
