@@ -7,21 +7,11 @@
     "icon_small_name": "host_io32x32.png",
     "icon_large_name": "host_io80x80.png",
     "help_online": "https://github.com/bidisha-spryiq/connector-host_io/blob/develop/docs/HostioConnectorDoc.md",
-    "category": "Data enrichment",
+    "category": "Threat Intelligence",
     "cs_compatible": true,
     "cs_approved": false,
     "configuration": {
         "fields": [
-            {
-                "title": "API Token",
-                "type": "password",
-                "description": "Provide API token, used for user authentication.",
-                "tooltip": "Provide API token, used for user authentication.",
-                "name": "token",
-                "required": true,
-                "visible": true,
-                "editable": true
-            },
             {
                 "title": "Server URL",
                 "type": "text",
@@ -30,6 +20,16 @@
                 "value": "host.io",
                 "placeholder": "host.io or https://host.io",
                 "name": "server",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "API Token",
+                "type": "password",
+                "description": "Provide API token, used for user authentication.",
+                "tooltip": "Provide API token, used for user authentication.",
+                "name": "token",
                 "required": true,
                 "visible": true,
                 "editable": true
@@ -42,7 +42,7 @@
             "title": "Get Web Domain Details",
             "description": "Get metadata scraped from a domain homepage.",
             "enabled": true,
-            "category": "utilities",
+            "category": "investigation",
             "annotation": "web_domain_details",
             "output_schema": {
                 "domain": "",
@@ -76,7 +76,7 @@
             "title": "Get DNS Domain Details",
             "description": "Get all the DNS records stored for a domain.",
             "enabled": true,
-            "category": "utilities",
+            "category": "investigation",
             "annotation": "dns_domain_details",
             "output_schema": {
                 "domain": "",
@@ -104,7 +104,7 @@
             "title": "Get Related Domains",
             "description": "Get a count of the number of related domains for all supported lookups offered by host.io.",
             "enabled": true,
-            "category": "utilities",
+            "category": "investigation",
             "annotation": "get_related_domains",
             "output_schema": {
                 "ip": [],
@@ -131,7 +131,7 @@
             "title": "Get Full Domains Data",
             "description": "A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.",
             "enabled": true,
-            "category": "utilities",
+            "category": "investigation",
             "annotation": "full_domains_data",
             "output_schema": {
                 "domain": "",
@@ -159,7 +159,7 @@
             "title": "Get All Domains",
             "description": "Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.",
             "enabled": true,
-            "category": "utilities",
+            "category": "investigation",
             "annotation": "get_all_domains",
             "output_schema": {
                 "total": "",

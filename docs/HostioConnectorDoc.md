@@ -25,17 +25,17 @@ Certified: No
 For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
 ### Configuration parameters
 <p>In FortiSOAR&trade;, on the Connectors page, click the <strong>host.io</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations&nbsp;</strong> tab enter the required configuration details:&nbsp;</p>
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>API Token<br></td><td>Provide API token, used for user authentication.<br>
-<tr><td>Server URL<br></td><td>URL of the host.io connector to access the connector website.<br>
+<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Server URL<br></td><td>URL of the host.io connector to access the connector website.<br>
+<tr><td>API Token<br></td><td>Provide API token, used for user authentication.<br>
 </tbody></table>
 
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
-<table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Get Web Domain Details<br></td><td>Get metadata scraped from a domain homepage.<br></td><td>web_domain_details <br/>Utilities<br></td></tr>
-<tr><td>Get DNS Domain Details<br></td><td>Get all the DNS records stored for a domain.<br></td><td>dns_domain_details <br/>Utilities<br></td></tr>
-<tr><td>Get Related Domains<br></td><td>Get a count of the number of related domains for all supported lookups offered by host.io.<br></td><td>get_related_domains <br/>Utilities<br></td></tr>
-<tr><td>Get Full Domains Data<br></td><td>A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.<br></td><td>full_domains_data <br/>Utilities<br></td></tr>
-<tr><td>Get All Domains<br></td><td>Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.<br></td><td>get_all_domains <br/>Utilities<br></td></tr>
+<table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Get Web Domain Details<br></td><td>Get metadata scraped from a domain homepage.<br></td><td>web_domain_details <br/>Investigation<br></td></tr>
+<tr><td>Get DNS Domain Details<br></td><td>Get all the DNS records stored for a domain.<br></td><td>dns_domain_details <br/>Investigation<br></td></tr>
+<tr><td>Get Related Domains<br></td><td>Get a count of the number of related domains for all supported lookups offered by host.io.<br></td><td>get_related_domains <br/>Investigation<br></td></tr>
+<tr><td>Get Full Domains Data<br></td><td>A single endpoint that includes the data from WEB DOMAIN, DNS DOMAIN, RELATED DOMAIN and IPinfo.<br></td><td>full_domains_data <br/>Investigation<br></td></tr>
+<tr><td>Get All Domains<br></td><td>Get all domains associated with :field, and a count of the total. The :value should be according to the :field and not necessarily a domain.<br></td><td>get_all_domains <br/>Investigation<br></td></tr>
 </tbody></table>
 
 ### operation: Get Web Domain Details
